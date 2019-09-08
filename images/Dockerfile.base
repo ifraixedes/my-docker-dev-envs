@@ -1,0 +1,23 @@
+FROM ubuntu:19.04
+
+ARG LOCALE=en_US.UTF-8
+ARG USER_NAME
+ARG USER_ID
+ARG ROOT_PWD
+
+RUN mkdir /tmp/box-setup
+ADD setup-scripts /tmp/box-setup/setup-scripts
+
+RUN cd /tmp/box-setup/setup-scripts \
+      && ./00-os-update-and-config.sh "${LOCALE}" "${USER_NAME}" "${USER_ID}" "${ROOT_PWD}" \
+      && ./01-essential-tools.sh \
+      && ./02-dev-essentials.sh \
+      && ./03-home.sh "${USER_NAME}" \
+      && ./99-vim-master.sh \
+      && apt-get autoremove \
+      && apt-get clean
+
+RUN rm -rf /tmp/box-setup
+WORKDIR "/home/${USER_NAME}"
+
+CMD ["bash"]

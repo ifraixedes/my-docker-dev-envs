@@ -1,0 +1,18 @@
+FROM ifraixedes/ubuntu/base:19.04
+
+RUN mkdir /tmp/box-setup
+ADD setup-scripts /tmp/box-setup/setup-scripts
+
+RUN cd /tmp/box-setup/setup-scripts \
+      && ./99-golang.sh \
+      && ./99-rustup-init.sh \
+      && ./99-nvm.sh \
+      && ./99-sqlite.sh \
+      && ./99-vale.sh \
+      && apt-get autoremove \
+      && apt-get clean
+
+RUN rm -rf /tmp/box-setup
+WORKDIR "/home/${USER_NAME}"
+
+CMD ["bash"]
