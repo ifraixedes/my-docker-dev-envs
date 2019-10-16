@@ -10,14 +10,15 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/01-golang.sh \
       && ./storj/50-storj-repo-dev-requirements.sh \
       && ./storj/private/70-ops-tools.sh \
+      && ./storj/99-kustomize.sh \
       && ./99-aws-cli.sh \
+      && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
+      && ./99-hyperfine.sh \
+      && ./99-kind.sh \
+      && ./99-lnav.sh \
       && ./99-nvm.sh \
       && ./99-sqlite.sh \
       && ./99-vale.sh \
-      && ./99-lnav.sh \
-      && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
-      && ./99-kind.sh \
-      && ./storj/99-kustomize.sh \
       && apt-get autoremove \
       && apt-get clean
 
