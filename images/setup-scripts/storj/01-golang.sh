@@ -11,5 +11,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-curl -o "${tmp_dir}/golang.tar.gz" "https://dl.google.com/go/go1.12.9.linux-amd64.tar.gz"
+curl --fail \
+  -o "${tmp_dir}/golang.tar.gz" \
+  "https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz"
 tar -C "${installation_dir}" -xzf "${tmp_dir}/golang.tar.gz"
