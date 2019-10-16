@@ -25,6 +25,11 @@ if [[ -d .ssh ]]; then
   chmod 600 -R .ssh/*
 fi
 
+## Reset permissions on the PGP directory
+if [[ -d .gnupg ]]; then
+  chmod 700 .gnupg
+fi
+
 ## Create home user persistent directories if they don't exist
 mkdir -p "${docker_persistent_path}/bin"
 
