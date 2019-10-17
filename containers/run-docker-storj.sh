@@ -15,7 +15,6 @@ if ! docker volume ls | grep ${volume_name} > /dev/null; then
 fi
 
 user_name=$(id -un)
-repo_remote="/hostmachine/cloud/mega/devices/configs/operative-system/docker/home-new.git"
 repo_branch="${id}"
 persistent_dir="/home/${user_name}/persistent"
 
