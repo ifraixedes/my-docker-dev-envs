@@ -2,6 +2,8 @@
 
 set -eu -o pipefail
 
+GO_VERSION=1.13.5
+
 installation_dir=/apps
 mkdir -p ${installation_dir}
 
@@ -13,7 +15,7 @@ trap cleanup EXIT
 
 curl --fail \
   -o "${tmp_dir}/golang.tar.gz" \
-  "https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz"
+  "https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz"
 tar -C "${installation_dir}" -xzf "${tmp_dir}/golang.tar.gz"
 
 # Install tools usually used for Go development
