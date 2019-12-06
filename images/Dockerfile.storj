@@ -14,9 +14,11 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-aws-cli.sh \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-hyperfine.sh \
+      && ./99-jq.sh \
       && ./99-kind.sh \
       && ./99-lnav.sh \
       && ./99-nvm.sh \
+      && ./99-protobuf-compiler.sh \
       && ./99-sqlite.sh \
       && ./99-vale.sh \
       && apt-get autoremove \
