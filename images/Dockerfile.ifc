@@ -4,9 +4,13 @@ RUN mkdir /tmp/box-setup
 ADD setup-scripts /tmp/box-setup/setup-scripts
 
 RUN cd /tmp/box-setup/setup-scripts \
+      && ./99-amber.sh \
       && ./99-golang.sh \
       && ./99-hyperfine.sh \
+      && ./99-mdcat.sh \
       && ./99-nvm.sh \
+      && ./99-procs.sh \
+      && ./99-ripgrep.sh \
       && ./99-rustup-init.sh \
       && ./99-rust-bindgen-requirements.sh \
       && ./99-sqlite.sh \
