@@ -14,4 +14,4 @@ trap cleanup EXIT
 curl --fail -L \
   -o "${tmp_dir}/lnav.zip" \
   "https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5-linux-64bit.zip"
-unzip -jX "${tmp_dir}/lnav.zip" "*/lnav" -d ${installation_dir}
+unzip -jX "${tmp_dir}/lnav.zip" "*/lnav" -d "${installation_dir}"
