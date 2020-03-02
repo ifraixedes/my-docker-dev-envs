@@ -9,14 +9,19 @@ ADD setup-scripts /tmp/box-setup/setup-scripts
 RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/01-golang.sh \
       && ./storj/50-storj-repo-dev-requirements.sh \
-      && ./storj/private/70-ops-tools.sh \
-      && ./storj/99-kustomize.sh \
+      && ./storj/private/70-google-cloud-tools.sh \
+      && ./storj/70-helm.sh \
+      && ./storj/70-kubectl.sh \
+      && ./storj/70-sops.sh \
+      && ./storj/70-terraform.sh \
+      && ./storj/70-terragrunt.sh \
       && ./99-amber.sh \
       && ./99-aws-cli.sh \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-hyperfine.sh \
       && ./99-jq.sh \
       && ./99-kind.sh \
+      && ./99-kustomize.sh \
       && ./99-lnav.sh \
       && ./99-mdcat.sh \
       && ./99-nvm.sh \
