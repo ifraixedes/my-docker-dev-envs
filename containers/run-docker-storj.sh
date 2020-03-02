@@ -30,6 +30,8 @@ docker run --name ifraixedes-${id} \
   --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
   --mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
   --mount type=bind,src=${HOME},dst=/hostmachine \
+  --cap-add=SYS_PTRACE \
+  --security-opt seccomp=unconfined \
   ifraixedes/ubuntu/${id}:19.04 \
   zsh -c \
     "${path_dir_container_script}/private/init-storj.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
