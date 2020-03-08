@@ -43,7 +43,7 @@ fi
 if [[ -z $(which rustup) ]]; then
   # This runs an interactive session
   rustup-init --no-modify-path
-  rustup component add rls rust-analysis rust-src rustfmt
+  rustup component add rls rust-analysis rust-src rustfmt clippy
   # Required by racer
   rustup toolchain add nightly
   cargo +nightly install racer
