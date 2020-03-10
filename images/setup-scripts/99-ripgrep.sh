@@ -16,6 +16,6 @@ curl --fail -L \
   "https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep-11.0.2-x86_64-unknown-linux-musl.tar.gz"
 
 cd "${tmp_dir}"
-tar zxf "ripgrep.tgz" --strip-components 1
+tar -zxf "ripgrep.tgz" --strip-components 1 --no-same-owner
 chmod +x "rg"
 mv rg "${installation_dir}/rg"

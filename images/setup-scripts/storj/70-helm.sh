@@ -28,6 +28,6 @@ if [[ "${sha}" != "${calculated_sha}" ]]; then
   exit 1
 fi
 
-tar xzf helm.tgz
+tar --no-same-owner -xzf helm.tgz
 chmod +x linux-amd64/helm linux-amd64/tiller
 mv linux-amd64/helm linux-amd64/tiller ${installation_dir}/

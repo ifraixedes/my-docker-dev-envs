@@ -16,6 +16,6 @@ curl --fail -L \
   "https://github.com/sharkdp/hyperfine/releases/download/v1.8.0/hyperfine-v1.8.0-x86_64-unknown-linux-gnu.tar.gz"
 
 cd "${tmp_dir}"
-tar zxf "hyperfine.tgz" --strip-components 1
+tar -zxf "hyperfine.tgz" --strip-components 1 --no-same-owner
 chmod +x "hyperfine"
 mv hyperfine "${installation_dir}/hyperfine"

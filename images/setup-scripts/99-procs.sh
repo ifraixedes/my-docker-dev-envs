@@ -14,5 +14,5 @@ trap cleanup EXIT
 curl --fail -L \
   -o "${tmp_dir}/procs.zip" \
   "https://github.com/dalance/procs/releases/download/v0.9.5/procs-v0.9.5-x86_64-lnx.zip"
-unzip -jX "${tmp_dir}/procs.zip" -d "${installation_dir}"
+unzip -j "${tmp_dir}/procs.zip" -d "${installation_dir}"
 chmod +x "${installation_dir}/procs"

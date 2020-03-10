@@ -16,6 +16,6 @@ curl --fail -L \
   "https://github.com/lunaryorn/mdcat/releases/download/mdcat-0.13.0/mdcat-0.13.0-x86_64-unknown-linux-musl.tar.gz"
 
 cd "${tmp_dir}"
-tar zxf "mdcat.tgz" --strip-components 1
+tar -zxf "mdcat.tgz" --strip-components 1 --no-same-owner
 chmod +x "mdcat"
 mv mdcat "${installation_dir}/mdcat"

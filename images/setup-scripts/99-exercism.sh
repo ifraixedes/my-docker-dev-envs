@@ -16,6 +16,6 @@ curl --fail -L \
   "https://github.com/exercism/cli/releases/download/v3.0.13/exercism-linux-64bit.tgz"
 
 cd "${tmp_dir}"
-tar zxf "exercism.tgz"
+tar --no-same-owner -zxf "exercism.tgz"
 chmod +x "exercism"
 mv exercism "${installation_dir}/exercism"
