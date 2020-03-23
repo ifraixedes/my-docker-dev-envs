@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # NOTES:
 # This script assumes that it's executed in the same user home directory
