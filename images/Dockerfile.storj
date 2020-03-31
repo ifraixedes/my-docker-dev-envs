@@ -12,6 +12,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/private/70-google-cloud-tools.sh \
       && ./storj/70-helm.sh \
       && ./storj/70-kubectl.sh \
+      && ./storj/70-postgresql-client.sh \
       && ./storj/70-sops.sh \
       && ./storj/70-terraform.sh \
       && ./storj/70-terragrunt.sh \
