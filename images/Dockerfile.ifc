@@ -8,6 +8,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-exercism.sh \
       && ./99-golang.sh \
       && ./99-hyperfine.sh \
+      && ./99-hugo.sh \
       && ./99-mdcat.sh \
       && ./99-nvm.sh \
       && ./99-procs.sh \
