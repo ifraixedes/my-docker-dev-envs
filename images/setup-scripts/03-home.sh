@@ -11,7 +11,7 @@ usermod --shell /usr/bin/zsh ${user_name}
 # Cleaning current home and copying my dot files from specified repo
 rm -rf "/home/${user_name}"
 mkdir -p "/home/${user_name}"
-chown -R ivan:ivan "/home/${user_name}"
+chown -R "${user_name}":"${user_name}" "/home/${user_name}"
 chmod 700 -R "/home/${user_name}"
 
 # Change directory the user home directory to create the files
@@ -33,4 +33,4 @@ mkdir -p persistent
 
 # Reset the permissions of the new directories and files created in the user
 # home directory
-chown -R ivan:ivan .
+chown -R "${user_name}":"${user_name}" .
