@@ -6,7 +6,7 @@ set -eu -o pipefail
 repo_remote="${1}"
 path_dir_container_script="${2}"
 
-volume_name=ifraixedes-ubuntu-19.04-base
+volume_name=ifraixedes-ubuntu-base
 if ! docker volume ls | grep ${volume_name} > /dev/null; then
   docker volume create ${volume_name}
 fi
@@ -23,7 +23,7 @@ docker run --name ifraixedes-base \
   --network=host \
   --mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
   --mount type=bind,src=${HOME},dst=/hostmachine \
-  ifraixedes/ubuntu/base:19.04 \
+  ifraixedes/ubuntu/base:20.04 \
   zsh -c \
     "${path_dir_container_script}/init-base.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
     ${path_dir_container_script}/entrypoint-base.sh"

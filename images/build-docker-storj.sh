@@ -12,4 +12,4 @@ docker build \
   --build-arg USER_NAME="${user_name}" \
   --build-arg DOCKER_GID="${docker_gid}" \
   -f Dockerfile.storj \
-  -t ifraixedes/ubuntu/storj:19.04 .
+  -t ifraixedes/ubuntu/storj:20.04 .

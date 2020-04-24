@@ -6,4 +6,4 @@ docker build \
   --force-rm \
   --no-cache \
   -f Dockerfile.ifc \
-  -t ifraixedes/ubuntu/ifc:19.04 .
+  -t ifraixedes/ubuntu/ifc:20.04 .

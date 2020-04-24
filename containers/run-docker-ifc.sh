@@ -9,7 +9,7 @@ path_dir_container_script="${2}"
 # This variable is used for identifying docker image, volumes, git branches,etc.
 id=ifc
 
-volume_name="ifraixedes-ubuntu-19.04-${id}"
+volume_name="ifraixedes-ubuntu-${id}"
 if ! docker volume ls | grep ${volume_name} > /dev/null; then
   docker volume create ${volume_name}
 fi
@@ -26,7 +26,7 @@ docker run --name ifraixedes-${id} \
   --network=host \
   --mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
   --mount type=bind,src=${HOME},dst=/hostmachine \
-  ifraixedes/ubuntu/${id}:19.04 \
+  ifraixedes/ubuntu/${id}:20.04 \
   zsh -c \
     "${path_dir_container_script}/init-ifc.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
     ${path_dir_container_script}/entrypoint-ifc.sh"

@@ -9,7 +9,7 @@ path_dir_container_script="${2}"
 # This variable is used for identifying docker image, volumes, git branches,etc.
 id=storj
 
-volume_name="ifraixedes-ubuntu-19.04-${id}"
+volume_name="ifraixedes-ubuntu-${id}"
 if ! docker volume ls | grep ${volume_name} > /dev/null; then
   docker volume create ${volume_name}
 fi
@@ -32,7 +32,7 @@ docker run --name ifraixedes-${id} \
   --mount type=bind,src=${HOME},dst=/hostmachine \
   --cap-add=SYS_PTRACE \
   --security-opt seccomp=unconfined \
-  ifraixedes/ubuntu/${id}:19.04 \
+  ifraixedes/ubuntu/${id}:20.04 \
   zsh -c \
     "${path_dir_container_script}/private/init-storj.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
     ${path_dir_container_script}/entrypoint-storj.sh"

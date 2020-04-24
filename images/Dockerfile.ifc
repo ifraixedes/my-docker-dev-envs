@@ -1,4 +1,4 @@
-FROM ifraixedes/ubuntu/base:19.04
+FROM ifraixedes/ubuntu/base:20.04
 
 RUN mkdir /tmp/box-setup
 ADD setup-scripts /tmp/box-setup/setup-scripts
