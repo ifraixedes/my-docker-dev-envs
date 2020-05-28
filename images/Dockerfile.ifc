@@ -5,6 +5,7 @@ ADD setup-scripts /tmp/box-setup/setup-scripts
 
 RUN cd /tmp/box-setup/setup-scripts \
       && ./99-amber.sh \
+      && ./99-delta.sh \
       && ./99-exercism.sh \
       && ./99-fzf.sh \
       && ./99-golang.sh \
