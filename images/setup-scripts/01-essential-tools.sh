@@ -9,6 +9,7 @@ update-ca-certificates
 # Install essentials tools
 apt-get install -y \
   apt-transport-https \
+  bsdmainutils \
   bzip2 \
   curl \
   git \
