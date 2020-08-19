@@ -9,13 +9,13 @@ mkdir -p ${installation_dir}
 
 tmp_dir=$(mktemp -d)
 cleanup() {
-  rm -rf "${tmp_dir}"
+	rm -rf "${tmp_dir}"
 }
 trap cleanup EXIT
 
 curl --fail -L \
-  -o "${tmp_dir}/velero.tgz" \
-  "https://github.com/vmware-tanzu/velero/releases/download/v${version_to_install}/velero-v${version_to_install}-linux-amd64.tar.gz"
+	-o "${tmp_dir}/velero.tgz" \
+	"https://github.com/vmware-tanzu/velero/releases/download/v${version_to_install}/velero-v${version_to_install}-linux-amd64.tar.gz"
 
 cd "${tmp_dir}"
 tar -zxf "velero.tgz" --strip-components 1 --no-same-owner

@@ -8,24 +8,24 @@ mkdir -p ${installation_dir}
 
 tmp_dir=$(mktemp -d)
 cleanup() {
-  rm -rf "${tmp_dir}"
+	rm -rf "${tmp_dir}"
 }
 trap cleanup EXIT
 
 curl --fail -L \
-  -o "${tmp_dir}/helm.tgz" \
-  "https://get.helm.sh/helm-v${helm_version}-linux-amd64.tar.gz"
+	-o "${tmp_dir}/helm.tgz" \
+	"https://get.helm.sh/helm-v${helm_version}-linux-amd64.tar.gz"
 
 curl --fail -L \
-  -o "${tmp_dir}/helm.sha256" \
-  "https://get.helm.sh/helm-v${helm_version}-linux-amd64.tar.gz.sha256"
+	-o "${tmp_dir}/helm.sha256" \
+	"https://get.helm.sh/helm-v${helm_version}-linux-amd64.tar.gz.sha256"
 
 cd "${tmp_dir}"
 sha=$(cat helm.sha256)
 calculated_sha=$(sha256sum helm.tgz | cut -d ' ' -f 1)
 if [[ "${sha}" != "${calculated_sha}" ]]; then
-  echo "Invalid Helm checksum"
-  exit 1
+	echo "Invalid Helm checksum"
+	exit 1
 fi
 
 tar --no-same-owner -xzf helm.tgz

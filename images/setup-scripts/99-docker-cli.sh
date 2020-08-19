@@ -15,7 +15,7 @@ usermod -a -G docker ${user_name}
 # Add docker APT repository requirements
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-key fingerprint 0EBFCD88
-echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" > /etc/apt/sources.list.d/docker-engine-community.list
+echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" >/etc/apt/sources.list.d/docker-engine-community.list
 
 apt-get update
 apt-get install -y docker-ce-cli

@@ -7,13 +7,13 @@ mkdir -p ${installation_dir}
 
 tmp_dir=$(mktemp -d)
 cleanup() {
-  rm -rf "${tmp_dir}"
+	rm -rf "${tmp_dir}"
 }
 trap cleanup EXIT
 
 curl --fail -L \
-  -o "${tmp_dir}/golangci-lint.tgz" \
-  "https://github.com/golangci/golangci-lint/releases/download/v1.23.8/golangci-lint-1.23.8-linux-amd64.tar.gz"
+	-o "${tmp_dir}/golangci-lint.tgz" \
+	"https://github.com/golangci/golangci-lint/releases/download/v1.23.8/golangci-lint-1.23.8-linux-amd64.tar.gz"
 
 cd "${tmp_dir}"
 tar -zxf "golangci-lint.tgz" --strip-components 1 --no-same-owner
