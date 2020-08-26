@@ -2,5 +2,4 @@
 
 set -eu -o pipefail
 
-apt-get install -y python3
-pip3 install awscli --upgrade
+apt-get install -y awscli
