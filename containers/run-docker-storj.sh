@@ -10,8 +10,8 @@ path_dir_container_script="${2}"
 id=storj
 
 volume_name="ifraixedes-ubuntu-${id}"
-if ! docker volume ls | grep ${volume_name} > /dev/null; then
-  docker volume create ${volume_name}
+if ! docker volume ls | grep ${volume_name} >/dev/null; then
+	docker volume create ${volume_name}
 fi
 
 user_name=$(id -un)
@@ -22,17 +22,17 @@ persistent_dir="/home/${user_name}/persistent"
 # the host machine user belongs. This is useful to be able to use docker-cli
 # installed in the container connecting to the host docker daemon
 docker run --name ifraixedes-${id} \
-  --rm \
-  -ti \
-  --user "${user_name}" \
-  --hostname if${id} \
-  --network=host \
-  --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
-  --mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
-  --mount type=bind,src=${HOME},dst=/hostmachine \
-  --cap-add=SYS_PTRACE \
-  --security-opt seccomp=unconfined \
-  ifraixedes/ubuntu/${id}:20.04 \
-  zsh -c \
-    "${path_dir_container_script}/private/init-storj.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
+	--rm \
+	-ti \
+	--user "${user_name}" \
+	--hostname if${id} \
+	--network=host \
+	--mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+	--mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
+	--mount type=bind,src=${HOME},dst=/hostmachine \
+	--cap-add=SYS_PTRACE \
+	--security-opt seccomp=unconfined \
+	ifraixedes/ubuntu/${id}:20.04 \
+	zsh -c \
+	"${path_dir_container_script}/private/init-storj.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
     ${path_dir_container_script}/entrypoint-storj.sh"

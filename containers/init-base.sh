@@ -21,13 +21,13 @@ git checkout "${repo_branch}"
 
 ## Reset permissions on the .ssh keys
 if [[ -d .ssh ]]; then
-  chmod 700 .ssh
-  chmod 600 -R .ssh/*
+	chmod 700 .ssh
+	chmod 600 -R .ssh/*
 fi
 
 ## Reset permissions on the PGP directory
 if [[ -d .gnupg ]]; then
-  chmod 700 .gnupg
+	chmod 700 .gnupg
 fi
 
 ## Create home user persistent directories if they don't exist
@@ -35,26 +35,25 @@ mkdir -p "${docker_persistent_path}/bin"
 
 ## Install vim plugins if they haven't been installed before
 if [[ ! -d "${docker_persistent_path}/vim" ]]; then
-  mkdir -p "${docker_persistent_path}/vim"
-  ln -s "${docker_persistent_path}/vim" .vim
-  GOBIN="${docker_persistent_path}/bin" vim +PlugInstall +qall!
+	mkdir -p "${docker_persistent_path}/vim"
+	ln -s "${docker_persistent_path}/vim" .vim
+	GOBIN="${docker_persistent_path}/bin" vim +PlugInstall +qall!
 else
-  ln -s "${docker_persistent_path}/vim" .vim
+	ln -s "${docker_persistent_path}/vim" .vim
 fi
 
 ## Install tmux plugins if they haven't been installed before
 if [[ ! -d "${docker_persistent_path}/tmux" ]]; then
-  mkdir -p "${docker_persistent_path}/tmux"
-  ln -s "${docker_persistent_path}/tmux" .tmux
-  .tmux-tpm/scripts/install_plugins.sh
+	mkdir -p "${docker_persistent_path}/tmux"
+	ln -s "${docker_persistent_path}/tmux" .tmux
+	.tmux-tpm/scripts/install_plugins.sh
 else
-  ln -s "${docker_persistent_path}/tmux" .tmux
+	ln -s "${docker_persistent_path}/tmux" .tmux
 fi
-
 
 ## Create a persistent zsh history file if not exist and link it
 if [[ ! -f "${docker_persistent_path}/.zsh_history" ]]; then
-  touch "${docker_persistent_path}/.zsh_history"
+	touch "${docker_persistent_path}/.zsh_history"
 fi
 
 ln -s "${docker_persistent_path}/.zsh_history" .zsh_history
