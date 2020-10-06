@@ -6,6 +6,7 @@ ADD setup-scripts /tmp/box-setup/setup-scripts
 RUN cd /tmp/box-setup/setup-scripts \
       && ./99-amber.sh \
       && ./99-delta.sh \
+      && ./99-earthly.sh \
       && ./99-exercism.sh \
       && ./99-fzf.sh \
       && ./99-golang.sh \
@@ -23,6 +24,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-shell-fmt.sh \
       && ./99-sqlite.sh \
       && ./99-vale.sh \
+      && ./99-watchexec.sh \
       && apt-get autoremove \
       && apt-get clean
 
