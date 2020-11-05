@@ -10,7 +10,8 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/01-golang.sh \
       && ./storj/50-storj-repo-dev-requirements.sh \
       && ./storj/private/70-google-cloud-tools.sh \
-      && ./storj/70-helm.sh \
+      && ./storj/70-helm-v2.sh \
+      && ./storj/70-helm-v3.sh \
       && ./storj/70-kubectl.sh \
       && ./storj/70-kubie.sh \
       && ./storj/70-postgresql-client.sh \
