@@ -19,6 +19,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-stern.sh \
       && ./storj/70-terraform.sh \
       && ./storj/70-terragrunt.sh \
+      && ./storj/70-yamllint.sh \
       && ./storj/99-golangci-lint.sh \
       && ./storj/99-velero.sh \
       && ./99-amber.sh \
