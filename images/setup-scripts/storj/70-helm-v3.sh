@@ -2,7 +2,7 @@
 
 set -eu -o pipefail
 
-helm_version="3.4.0"
+helm_version="3.4.1"
 installation_dir=/apps
 mkdir -p ${installation_dir}
 
