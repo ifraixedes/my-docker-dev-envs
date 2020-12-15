@@ -55,3 +55,21 @@ fi
 mkdir -p .oh-my-zsh/completions
 "${rust_dir}/cargo/bin/rustup" completions zsh >.oh-my-zsh/completions/rustup
 "${rust_dir}/cargo/bin/rustup" completions zsh cargo >.oh-my-zsh/completions/cargo
+
+## Install Go tooling
+GOBIN=${HOME}/persistent/bin
+
+if [[ ! -f "${GOBIN}/revive" ]]; then
+	temp_dir=$(mktemp -d)
+	cleanup_go() {
+		rm -rf "${temp_dir}"
+	}
+	trap cleanup_go EXIT
+
+	pushd "${temp_dir}"
+
+	go mod init tooling
+	go get -u github.com/mgechev/revive@v1.0.2
+
+	popd
+fi
