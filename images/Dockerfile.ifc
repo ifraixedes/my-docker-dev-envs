@@ -22,6 +22,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-rustup-init.sh \
       && ./99-rust-bindgen-requirements.sh \
       && ./99-shell-fmt.sh \
+      && ./99-shellcheck.sh \
       && ./99-sqlite.sh \
       && ./99-vale.sh \
       && ./99-watchexec.sh \
