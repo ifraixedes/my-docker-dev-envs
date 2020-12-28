@@ -27,6 +27,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-fzf.sh \
       && ./99-hyperfine.sh \
+      && ./99-jq.sh \
       && ./99-kind.sh \
       && ./99-kustomize.sh \
       && ./99-lnav.sh \
@@ -39,6 +40,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-shellcheck.sh \
       && ./99-sqlite.sh \
       && ./99-vale.sh \
+      && ./99-yq.sh \
       && apt-get autoremove \
       && apt-get clean
 
