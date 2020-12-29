@@ -1,8 +1,8 @@
-#!/usr/bin/env -S bash -
+#!/usr/bin/env bash
 
 set -eu -o pipefail
 
-version=0.9.1
+version=0.11.1
 
 installation_dir=/apps
 mkdir -p ${installation_dir}
