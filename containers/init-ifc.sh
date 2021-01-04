@@ -73,3 +73,10 @@ if [[ ! -f "${GOBIN}/revive" ]]; then
 
 	popd
 fi
+
+## Create directory for Vim Coc plugin (https://github.com/neoclide/coc.nvim)
+VIM_PLUGINS_CONFIG="${docker_persistent_path}/vim/plugins-config"
+mkdir -p "${HOME}/.config"
+
+mkdir -p "${VIM_PLUGINS_CONFIG}/coc"
+ln -s "${VIM_PLUGINS_CONFIG}/coc" "${HOME}/.config/coc"
