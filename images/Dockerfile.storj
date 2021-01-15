@@ -9,6 +9,7 @@ ADD setup-scripts /tmp/box-setup/setup-scripts
 RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/01-golang.sh \
       && ./storj/50-storj-repo-dev-requirements.sh \
+      && ./storj/70-cockroach-client.sh \
       && ./storj/private/70-google-cloud-tools.sh \
       && ./storj/70-helm-v3.sh \
       && ./storj/70-kubectl-and-plugins.sh \
