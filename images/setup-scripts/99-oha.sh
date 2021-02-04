@@ -2,7 +2,7 @@
 
 set -eu -o pipefail
 
-version_to_install="0.4.1"
+version="0.4.1"
 
 installation_dir=/apps
 mkdir -p ${installation_dir}
@@ -15,6 +15,7 @@ trap cleanup EXIT
 
 curl --fail -L \
 	-o "${tmp_dir}/oha" \
-	"https://github.com/hatoo/oha/releases/download/v${version_to_install}/oha-linux-amd64"
+	"https://github.com/hatoo/oha/releases/download/v${version}/oha-linux-amd64"
+
 mv "${tmp_dir}/oha" "${installation_dir}"
 chmod +x "${installation_dir}/oha"
