@@ -13,9 +13,14 @@ cleanup() {
 }
 trap cleanup EXIT
 
-curl --fail -L \
+print_script_name() {
+	basename "${0}"
+}
+trap print_script_name ERR
+
+curl --fail --fail-early -L \
 	-o "${tmp_dir}/ijq.tgz" \
-	"https://git.sr.ht/~gpanders/ijq/refs/v${version}/ijq-${version}-linux-x86_64.tar.gz"
+	"https://git.sr.ht/~gpanders/ijq/refs/download/v${version}/ijq-${version}-linux-x86_64.tar.gz"
 
 cd "${tmp_dir}"
 tar -zxf "ijq.tgz" --strip-components 1 --no-same-owner
