@@ -28,8 +28,8 @@ docker run --name ifraixedes-${id} \
 	--hostname if${id} \
 	--network=host \
 	--mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
-	--mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
-	--mount type=bind,src=${HOME},dst=/hostmachine \
+	--mount type=volume,src="${volume_name}",dst=/home/"${user_name}"/persistent \
+	--mount type=bind,src="${HOME}",dst=/hostmachine \
 	--cap-add=SYS_PTRACE \
 	--security-opt seccomp=unconfined \
 	ifraixedes/ubuntu/${id}:20.04 \
