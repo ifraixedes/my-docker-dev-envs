@@ -21,8 +21,8 @@ docker run --name ifraixedes-base \
 	--user "${user_name}:${user_name}" \
 	--hostname ifbase \
 	--network=host \
-	--mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
-	--mount type=bind,src=${HOME},dst=/hostmachine \
+	--mount type=volume,src="${volume_name}",dst=/home/"${user_name}"/persistent \
+	--mount type=bind,src="${HOME}",dst=/hostmachine \
 	ifraixedes/ubuntu/base:20.04 \
 	zsh -c \
 	"${path_dir_container_script}/init-base.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \

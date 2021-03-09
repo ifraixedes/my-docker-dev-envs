@@ -9,8 +9,8 @@ set -eu -o pipefail
 user_name=${1}
 docker_gid=${2}
 
-groupadd -g ${docker_gid} docker
-usermod -a -G docker ${user_name}
+groupadd -g "${docker_gid}" docker
+usermod -a -G docker "${user_name}"
 
 # Add docker APT repository requirements
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -

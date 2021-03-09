@@ -24,8 +24,8 @@ docker run --name ifraixedes-${id} \
 	--user "${user_name}:${user_name}" \
 	--hostname if${id} \
 	--network=host \
-	--mount type=volume,src=${volume_name},dst=/home/${user_name}/persistent \
-	--mount type=bind,src=${HOME},dst=/hostmachine \
+	--mount type=volume,src="${volume_name}",dst=/home/"${user_name}"/persistent \
+	--mount type=bind,src="${HOME}",dst=/hostmachine \
 	ifraixedes/ubuntu/${id}:20.04 \
 	zsh -c \
 	"${path_dir_container_script}/init-ifc.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
