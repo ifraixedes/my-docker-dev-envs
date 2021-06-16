@@ -2,7 +2,7 @@
 
 set -eu -o pipefail
 
-version=0.11.1
+version=0.15.1
 
 installation_dir=/apps
 mkdir -p ${installation_dir}
