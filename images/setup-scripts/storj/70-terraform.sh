@@ -2,17 +2,23 @@
 
 set -eu -o pipefail
 
-installation_dir=/apps
-mkdir -p ${installation_dir}
+readonly VERSION="1.0.2"
+readonly INSTALLATION_DIR=/apps
+mkdir -p ${INSTALLATION_DIR}
 
-tmp_dir=$(mktemp -d)
+readonly BIN_NAME="terraform"
+readonly DONWLOAD_URL="https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip"
+
+TMP_DIR=$(mktemp -d)
+readonly TMP_DIR
 cleanup() {
-	rm -rf "${tmp_dir}"
+	rm -rf "${TMP_DIR}"
 }
 trap cleanup EXIT
 
 curl --fail -L \
-	-o "${tmp_dir}/terraform.zip" \
-	"https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip"
-unzip -j "${tmp_dir}/terraform.zip" -d "${installation_dir}"
-chmod +x "${installation_dir}/terraform"
+	-o "${TMP_DIR}/${BIN_NAME}.zip" \
+	"${DONWLOAD_URL}"
+
+unzip -j "${TMP_DIR}/${BIN_NAME}.zip" -d "${INSTALLATION_DIR}"
+chmod +x "${INSTALLATION_DIR}/${BIN_NAME}"
