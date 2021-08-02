@@ -23,24 +23,16 @@ ${script_dir}/init-base.sh ${docker_persistent_path} ${repo_url} ${repo_branch}
 ## Source custom paths
 source .my-env
 
-## Configure Rust
-rust_dir="${docker_persistent_path}/rust"
+## Configure Rust to use the persistent volume
+readonly rust_dir="${docker_persistent_path}/rust"
 
-# Create rustup if not exists and the corresponding symlink
-if [[ ! -d "${rust_dir}/rustup" ]]; then
-	mkdir -p "${rust_dir}/rustup"
-	ln -s "${rust_dir}/rustup" .rustup
-else
-	ln -s "${rust_dir}/rustup" .rustup
-fi
+# Create rustup symlink
+mkdir -p "${rust_dir}/rustup"
+ln -s "${rust_dir}/rustup" .rustup
 
-# Create cargo if not exists and the corresponding symlink
-if [[ ! -d "${rust_dir}/cargo" ]]; then
-	mkdir -p "${rust_dir}/cargo"
-	ln -s "${rust_dir}/cargo" .cargo
-else
-	ln -s "${rust_dir}/cargo" .cargo
-fi
+# Create cargo symlink
+mkdir -p "${rust_dir}/cargo"
+ln -s "${rust_dir}/cargo" .cargo
 
 # Install rustup and component's toolchain if it has not been installed before
 if [[ -z $(which rustup) ]]; then
