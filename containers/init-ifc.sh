@@ -54,3 +54,8 @@ mkdir -p "${HOME}/.config"
 
 mkdir -p "${VIM_PLUGINS_CONFIG}/coc"
 ln -s "${VIM_PLUGINS_CONFIG}/coc" "${HOME}/.config/coc"
+
+## Save mcfly (https://github.com/cantino/mcfly) shell history into the
+## persistent volume
+mkdir -p "${docker_persistent_path}/mcfly"
+ln -s "${docker_persistent_path}/mcfly" .mcfly

@@ -14,6 +14,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-hyperfine.sh \
       && ./99-hugo.sh \
       && ./99-libssl-dev.sh \
+      && ./99-mcfly.sh \
       && ./99-mdcat.sh \
       && ./99-nvm.sh \
       && ./99-oha.sh \
