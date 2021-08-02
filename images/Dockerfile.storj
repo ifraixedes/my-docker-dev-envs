@@ -31,6 +31,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-delta.sh \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-fzf.sh \
+      && ./99-golang-revive.sh \
       && ./99-hyperfine.sh \
       && ./99-ijq.sh \
       && ./99-jq.sh \
