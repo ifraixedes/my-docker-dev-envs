@@ -16,6 +16,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-kubie.sh \
       && ./storj/70-packer.sh \
       && ./storj/70-postgresql-client.sh \
+      && ./storj/70-salt.sh \
       && ./storj/70-sops.sh \
       && ./storj/70-sshuttle.sh \
       && ./storj/70-stern.sh \
