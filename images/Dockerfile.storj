@@ -45,6 +45,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-nvm.sh \
       && ./99-procs.sh \
       && ./99-protobuf-compiler.sh \
+      && ./99-pueue.sh \
       && ./99-ripgrep.sh \
       && ./99-shell-fmt.sh \
       && ./99-shellcheck.sh \
