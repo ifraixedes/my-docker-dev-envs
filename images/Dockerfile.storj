@@ -26,6 +26,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-yamllint.sh \
       && ./storj/99-golangci-lint.sh \
       && ./99-amber.sh \
+      && ./99-ain.sh \
       && ./99-aws-cli.sh \
       && ./99-chroma.sh \
       && ./99-curlie.sh \
