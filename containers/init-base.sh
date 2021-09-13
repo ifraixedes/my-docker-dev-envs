@@ -19,11 +19,15 @@ git remote add origin "${repo_url}"
 git fetch
 git checkout "${repo_branch}"
 
-## Reset permissions on the .ssh keys
-if [[ -d .ssh ]]; then
-	chmod 700 .ssh
-	chmod 600 -R .ssh/*
-fi
+## SSH
+# Reset permissions on the .ssh keys and link the 'known_hosts' file to the
+# persistent volume.
+mkdir -p ".ssh"
+chmod 700 .ssh
+chmod 600 -R .ssh/*
+mkdir -p "${docker_persistent_path}/ssh"
+touch -a "${docker_persistent_path}/ssh/known_hosts"
+ln -s "${docker_persistent_path}/ssh/known_hosts" ".ssh/known_hosts"
 
 ## Reset permissions on the PGP directory
 if [[ -d .gnupg ]]; then
