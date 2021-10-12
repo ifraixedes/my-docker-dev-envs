@@ -12,6 +12,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./00-os-update-and-config.sh "${LOCALE}" "${USER_NAME}" "${USER_ID}" "${USER_PWD}" \
       && ./01-essential-tools.sh \
       && ./02-dev-essentials.sh \
+      && ./02-universal-ctags.sh \
       && ./03-home.sh "${USER_NAME}" \
       && ./99-vim-master.sh \
       && apt-get autoremove \

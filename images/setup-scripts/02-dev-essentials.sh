@@ -2,8 +2,8 @@
 
 set -eu -o pipefail
 
-# Install general compilers
-apt-get install -y g++
+# Install general compilers and building tools
+apt-get install -y g++ dh-autoreconf pkg-config
 
 # Install code tools
 ## https://github.com/ggreer/the_silver_searcher

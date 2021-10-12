@@ -27,10 +27,6 @@ cd vim/src/
 make
 make install
 
-# Tools required by VIM
-echo 'Installing exuberant-ctags'
-apt-get install -y exuberant-ctags
-
 ## Install current plugins requirements
 # Required by github.com/Shougo/deoplete.nvim
 apt-get install -y python3-pip
