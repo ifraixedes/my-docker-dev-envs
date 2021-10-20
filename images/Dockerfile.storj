@@ -53,6 +53,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-shell-fmt.sh \
       && ./99-shellcheck.sh \
       && ./99-sqlite.sh \
+      && ./99-tig.sh \
       && ./99-vale.sh \
       && ./99-yq.sh \
       && apt-get autoremove \
