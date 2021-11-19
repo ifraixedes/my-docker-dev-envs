@@ -7,6 +7,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-amber.sh \
       && ./99-chroma.sh \
       && ./99-delta.sh \
+      && ./99-deno.sh \
       && ./99-earthly.sh \
       && ./99-exercism.sh \
       && ./99-fzf.sh \
