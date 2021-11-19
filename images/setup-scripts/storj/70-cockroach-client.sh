@@ -15,7 +15,7 @@ trap cleanup EXIT
 
 curl --fail -L \
 	-o "${tmp_dir}/cockroach.tgz" \
-	"https://binaries.cockroachdb.com/cockroach-v${version}.linux-amd64.tgz "
+	"https://binaries.cockroachdb.com/cockroach-v${version}.linux-amd64.tgz"
 
 cd "${tmp_dir}"
 tar -zxf "cockroach.tgz" --strip-components 1 --no-same-owner
