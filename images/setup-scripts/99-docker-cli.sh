@@ -18,4 +18,4 @@ apt-key fingerprint 0EBFCD88
 echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" >/etc/apt/sources.list.d/docker-engine-community.list
 
 apt-get update
-apt-get install -y docker-ce-cli
+apt-get install -y docker-ce-cli docker-compose
