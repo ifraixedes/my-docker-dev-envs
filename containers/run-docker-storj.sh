@@ -31,8 +31,10 @@ docker run --name ifraixedes-${ID} \
 	--hostname if${ID} \
 	--network=host \
 	--mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
-	--mount type=volume,src="${volume_name}",dst=/home/"${user_name}"/persistent \
+	--mount type=volume,src="${volume_name}",dst="/home/${user_name}/persistent" \
 	--mount type=bind,src="${HOME}",dst=/hostmachine \
+	--mount type=bind,src="${HOME}/.Xauthority",dst="/home/${user_name}/.Xauthority" \
+	--env DISPLAY="${DISPLAY}" \
 	--cap-add=SYS_PTRACE \
 	--cap-add=NET_ADMIN \
 	--cap-add=NET_BIND_SERVICE \
@@ -41,3 +43,9 @@ docker run --name ifraixedes-${ID} \
 	zsh -c \
 	"${path_dir_container_script}/private/init-storj.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
     ${path_dir_container_script}/entrypoint-storj.sh"
+
+# The bind to .Xautority and the DISPLAY environment variable mapping are for
+# making possible to run GUI apps through the host machine X server.
+# The host machine can authorize the docker containers to connect to the X
+# server executing `xhost +"local:"` if it isn't already authorized. To list the
+# authorizations just execute `xhost`.
