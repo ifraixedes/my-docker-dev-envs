@@ -2,12 +2,15 @@
 
 set -eu -o pipefail
 
-version=3.7.1
+readonly VERSION=3.7.2
+readonly INSTALLATION_DIR=/apps
+mkdir -p ${INSTALLATION_DIR}
 
-installation_dir=/apps
-mkdir -p ${installation_dir}
+readonly BIN_NAME="sops"
+readonly DOWNLOAD_URL="https://github.com/mozilla/sops/releases/download/v${VERSION}/sops-v${VERSION}.linux"
 
 curl --fail -L \
-	-o "${installation_dir}/sops" \
-	"https://github.com/mozilla/sops/releases/download/v${version}/sops-v${version}.linux"
-chmod +x "${installation_dir}/sops"
+	-o "${INSTALLATION_DIR}/${BIN_NAME}" \
+	"${DOWNLOAD_URL}"
+
+chmod +x "${INSTALLATION_DIR}/${BIN_NAME}"
