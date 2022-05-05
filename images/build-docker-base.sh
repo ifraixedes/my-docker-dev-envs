@@ -22,4 +22,4 @@ docker build \
 	--build-arg USER_ID="${user_id}" \
 	--build-arg USER_PWD="${user_pwd}" \
 	-f Dockerfile.base \
-	-t ifraixedes/ubuntu/base:20.04 .
+	-t ifraixedes/ubuntu/base:22.04 .

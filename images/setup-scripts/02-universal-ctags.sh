@@ -13,6 +13,16 @@ trap cleanup EXIT
 
 pushd "${tmp_dir}"
 
+# Install dependencies for building ctags.
+apt-get -y install \
+	gcc make \
+	pkg-config autoconf automake \
+	python3-docutils \
+	libseccomp-dev \
+	libjansson-dev \
+	libyaml-dev \
+	libxml2-dev
+
 git clone https://github.com/universal-ctags/ctags.git
 
 pushd ctags

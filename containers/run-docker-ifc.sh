@@ -28,7 +28,7 @@ docker run --name ifraixedes-${ID} \
 	--mount type=bind,src="${HOME}",dst=/hostmachine \
 	--mount type=bind,src="${HOME}/.Xauthority",dst="/home/${user_name}/.Xauthority" \
 	--env DISPLAY="${DISPLAY}" \
-	ifraixedes/ubuntu/${ID}:20.04 \
+	ifraixedes/ubuntu/${ID}:22.04 \
 	zsh -c \
 	"${path_dir_container_script}/init-ifc.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
     ${path_dir_container_script}/entrypoint-ifc.sh"

@@ -39,7 +39,7 @@ docker run --name ifraixedes-${ID} \
 	--cap-add=NET_ADMIN \
 	--cap-add=NET_BIND_SERVICE \
 	--security-opt seccomp=unconfined \
-	ifraixedes/ubuntu/${ID}:20.04 \
+	ifraixedes/ubuntu/${ID}:22.04 \
 	zsh -c \
 	"${path_dir_container_script}/private/init-storj.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
     ${path_dir_container_script}/entrypoint-storj.sh"
