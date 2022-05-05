@@ -48,12 +48,12 @@ mkdir -p .oh-my-zsh/completions
 "${rust_dir}/cargo/bin/rustup" completions zsh >.oh-my-zsh/completions/rustup
 "${rust_dir}/cargo/bin/rustup" completions zsh cargo >.oh-my-zsh/completions/cargo
 
-## Create directory for Vim Coc plugin (https://github.com/neoclide/coc.nvim)
-VIM_PLUGINS_CONFIG="${docker_persistent_path}/vim/plugins-config"
-mkdir -p "${HOME}/.config"
-
-mkdir -p "${VIM_PLUGINS_CONFIG}/coc"
-ln -s "${VIM_PLUGINS_CONFIG}/coc" "${HOME}/.config/coc"
+## Neovim data directory
+mkdir -p ".local/share"
+ln -s "${docker_persistent_path}/nvim/data" ".local/share/nvim"
+## Create directory for Neovim Coc plugin (https://github.com/neoclide/coc.nvim)
+mkdir -p "${docker_persistent_path}/nvim/coc"
+ln -s "${docker_persistent_path}/nvim/coc" "${HOME}/.config/coc"
 
 ## Save mcfly (https://github.com/cantino/mcfly) shell history into the
 ## persistent volume
