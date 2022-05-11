@@ -10,8 +10,8 @@ echo "precedence ::ffff:0:0/96 100" >>/etc/gai.conf
 apt-get install -y software-properties-common
 
 # Install Neovim.
-add-apt-repository -y ppa:neovim-ppa/stable
-apt-get install -y neovim
+add-apt-repository -y ppa:neovim-ppa/unstable
+apt-get install -y neovim python3-pynvim # Coc plugin requires pynvim
 
 # If there is the need for Python modules in the future visit
 # https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu
