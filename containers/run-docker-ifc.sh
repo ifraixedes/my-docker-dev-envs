@@ -23,6 +23,7 @@ docker run --name ifraixedes-${ID} \
 	-ti \
 	--user "${user_name}:${user_name}" \
 	--hostname if${ID} \
+	--add-host=if${ID}:127.0.0.1 \
 	--network=host \
 	--mount type=volume,src="${volume_name}",dst="/home/${user_name}/persistent" \
 	--mount type=bind,src="${HOME}",dst=/hostmachine \
