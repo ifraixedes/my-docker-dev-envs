@@ -14,6 +14,13 @@ if ! docker volume ls | grep ${volume_name} >/dev/null; then
 	docker volume create ${volume_name}
 fi
 
+map_dev_arduino=""
+if [[ -c /dev/ttyACM0 ]]; then
+  uucp_gid=$(grep uucp /etc/group | cut -d ':' -f 3)
+  map_dev_arduino="--device=/dev/ttyACM0 \
+	--group-add ${uucp_gid} "
+fi
+
 user_name=$(id -un)
 repo_branch="${ID}"
 persistent_dir="/home/${user_name}/persistent"
@@ -25,6 +32,7 @@ docker run --name ifraixedes-${ID} \
 	--hostname if${ID} \
 	--add-host=if${ID}:127.0.0.1 \
 	--network=host \
+	${map_dev_arduino} \
 	--mount type=volume,src="${volume_name}",dst="/home/${user_name}/persistent" \
 	--mount type=bind,src="${HOME}",dst=/hostmachine \
 	--mount type=bind,src="${HOME}/.Xauthority",dst="/home/${user_name}/.Xauthority" \
