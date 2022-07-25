@@ -2,16 +2,25 @@
 
 set -eu -o pipefail
 
-installation_dir=/apps
-mkdir -p ${installation_dir}
+readonly VERSION="0.10.1"
+readonly INSTALLATION_DIR="/apps"
+mkdir -p "${INSTALLATION_DIR}"
 
-tmp_dir=$(mktemp -d)
+readonly BIN_NAME="lnav"
+readonly DOWNLOAD_URL="https://github.com/tstack/lnav/releases/download/v${VERSION}/lnav-${VERSION}-musl-64bit.zip"
+
+TMP_DIR=$(mktemp -d)
+readonly TMP_DIR
 cleanup() {
-	rm -rf "${tmp_dir}"
+	trap - EXIT
+
+	rm -rf "${TMP_DIR}"
 }
 trap cleanup EXIT
 
 curl --fail -L \
-	-o "${tmp_dir}/lnav.zip" \
-	"https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5-linux-64bit.zip"
-unzip -j "${tmp_dir}/lnav.zip" "*/lnav" -d "${installation_dir}"
+	-o "${TMP_DIR}/${BIN_NAME}.zip" \
+	"${DOWNLOAD_URL}"
+
+cd "${TMP_DIR}"
+unzip -j "${BIN_NAME}.zip" "*/lnav" -d "${INSTALLATION_DIR}"
