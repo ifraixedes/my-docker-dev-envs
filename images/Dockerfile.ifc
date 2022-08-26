@@ -26,6 +26,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-ripgrep.sh \
       && ./99-rustup-init.sh \
       && ./99-rust-bindgen-requirements.sh \
+      && ./99-rust-dev-requirements.sh \
       && ./99-shell-fmt.sh \
       && ./99-shellcheck.sh \
       && ./99-sqlite.sh \
