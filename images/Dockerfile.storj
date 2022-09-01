@@ -35,6 +35,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-curlie.sh \
       && ./99-dasel.sh \
       && ./99-delta.sh \
+      && ./99-difftastic.sh \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-fzf.sh \
       && ./99-golang-revive.sh \
