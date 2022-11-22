@@ -1,6 +1,6 @@
 #!/usr/bin/env -S bash -
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 helm_version="3.4.1"
 installation_dir=/apps

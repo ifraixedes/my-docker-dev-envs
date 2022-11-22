@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 readonly VERSION=latest
 readonly INSTALLATION_DIR=/apps

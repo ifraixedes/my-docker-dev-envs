@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 installation_dir="/usr/local"
 mkdir -p "${installation_dir}"

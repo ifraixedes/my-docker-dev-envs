@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 ## Install C / C++ tools
 apt-get install -y make gcc ncurses-dev python3-dev

@@ -1,5 +1,5 @@
 #!/usr/bin/env -S bash -
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 apt-get install -y postgresql-client

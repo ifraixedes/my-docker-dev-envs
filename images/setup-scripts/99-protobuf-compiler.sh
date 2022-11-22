@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 apt-get install -y protobuf-compiler

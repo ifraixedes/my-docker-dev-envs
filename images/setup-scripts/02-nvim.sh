@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 # This allows sites (like the Neovim Personal Package Archive) which prefer IPv4
 # to work.

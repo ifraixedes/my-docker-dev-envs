@@ -1,6 +1,6 @@
 #!/usr/bin/env -S bash -
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 installation_dir=/apps
 mkdir -p ${installation_dir}

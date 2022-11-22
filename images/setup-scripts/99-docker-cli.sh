@@ -2,7 +2,7 @@
 
 # This scripts install the Docker cli...
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 # Use the same group ID that the docker group of the host machine for adding
 # the user to such group

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 # It's used for the compare and swap tests to verify our compare & swap
 # implementation

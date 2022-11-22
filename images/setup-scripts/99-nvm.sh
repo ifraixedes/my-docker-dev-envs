@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 NVM_DIR="/apps/nvm"
 git clone https://github.com/creationix/nvm.git "${NVM_DIR}"

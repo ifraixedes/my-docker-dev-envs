@@ -1,6 +1,6 @@
 #!/usr/bin/env -S bash -
 
-set -eu -o pipefail
+set -eux -o pipefail
 
 version=3.1.2
 
