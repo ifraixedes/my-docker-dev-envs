@@ -21,7 +21,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-python-dev.sh \
       && ./storj/70-salt.sh \
       && ./storj/70-sops.sh \
-      && ./storj/70-sshuttle.sh \
       && ./storj/70-stern.sh \
       && ./storj/70-terraform.sh \
       && ./storj/70-terragrunt.sh \
@@ -42,6 +41,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-hyperfine.sh \
       && ./99-ijq.sh \
       && ./99-jq.sh \
+      && ./99-just.sh \
       && ./99-kdash.sh \
       && ./99-kind.sh \
       && ./99-lnav.sh \
