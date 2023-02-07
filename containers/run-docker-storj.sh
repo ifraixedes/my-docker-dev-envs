@@ -20,10 +20,8 @@ persistent_dir="/home/${user_name}/persistent"
 
 # group isn't passed to --user flag because it allows to use all the groups that
 # the host machine user belongs. This is useful to be able to use docker-cli
-# installed in the container connecting to the host docker daemon
-#
-# About some of the Linux capabilities:
-# * NET_ADMIN and NET_BIND_SERVICE are required by sshuttle
+# installed in the container connecting to the host docker daemon.
+# So do `--user "${user_name}"` instead of `--user "${user_name}:${user_name}"`.
 docker run --name ifraixedes-${ID} \
 	--rm \
 	-ti \
@@ -37,8 +35,6 @@ docker run --name ifraixedes-${ID} \
 	--mount type=bind,src="${HOME}/.Xauthority",dst="/home/${user_name}/.Xauthority" \
 	--env DISPLAY="${DISPLAY}" \
 	--cap-add=SYS_PTRACE \
-	--cap-add=NET_ADMIN \
-	--cap-add=NET_BIND_SERVICE \
 	--security-opt seccomp=unconfined \
 	ifraixedes/ubuntu/${ID}:22.04 \
 	zsh -c \
