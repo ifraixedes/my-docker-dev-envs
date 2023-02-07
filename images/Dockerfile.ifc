@@ -1,5 +1,8 @@
 FROM ifraixedes/ubuntu/base:22.04
 
+ARG USER_NAME
+ARG DOCKER_GID
+
 RUN mkdir /tmp/box-setup
 ADD setup-scripts /tmp/box-setup/setup-scripts
 
@@ -10,6 +13,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-delta.sh \
       && ./99-deno.sh \
       && ./99-difftastic.sh \
+      && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-earthly.sh \
       && ./99-embedded-programming.sh \
       && ./99-exercism.sh \
