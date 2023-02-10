@@ -34,6 +34,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-rust-dev-requirements.sh \
       && ./99-shell-fmt.sh \
       && ./99-shellcheck.sh \
+      && ./99-solidity.sh \
       && ./99-sqlite.sh \
       && ./99-tig.sh \
       && ./99-vale.sh \
