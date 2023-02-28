@@ -2,10 +2,15 @@
 
 set -eux -o pipefail
 
-installation_dir=/apps
-mkdir -p ${installation_dir}
+readonly VERSION="0.43.2"
+readonly INSTALLATION_DIR="/apps"
+mkdir -p "${INSTALLATION_DIR}"
+
+readonly BIN_NAME="terragrunt"
+readonly DOWNLOAD_URL="https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_amd64"
 
 curl --fail -L \
-	-o "${installation_dir}/terragrunt" \
-	"https://github.com/gruntwork-io/terragrunt/releases/download/v0.21.9/terragrunt_linux_amd64"
-chmod +x "${installation_dir}/terragrunt"
+	-o "${INSTALLATION_DIR}/${BIN_NAME}" \
+	"${DOWNLOAD_URL}"
+
+chmod +x "${INSTALLATION_DIR}/${BIN_NAME}"

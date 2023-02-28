@@ -2,7 +2,7 @@
 
 set -eux -o pipefail
 
-version=20.2.3
+version=22.2.5
 
 installation_dir=/apps
 mkdir -p "${installation_dir}"
