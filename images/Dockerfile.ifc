@@ -39,6 +39,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-tig.sh \
       && ./99-vale.sh \
       && ./99-watchexec.sh \
+      && ./99-zig.sh \
       && apt-get autoremove \
       && apt-get clean
 
