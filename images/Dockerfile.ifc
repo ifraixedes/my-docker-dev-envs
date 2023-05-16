@@ -18,12 +18,14 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-embedded-programming.sh \
       && ./99-exercism.sh \
       && ./99-fzf.sh \
+      && ./99-glow.sh \
       && ./99-golang.sh \
       && ./99-golang-revive.sh \
       && ./99-hyperfine.sh \
       && ./99-hugo.sh \
       && ./99-libssl-dev.sh \
       && ./99-mcfly.sh \
+      && ./99-mods.sh \
       && ./99-nvm.sh \
       && ./99-oha.sh \
       && ./99-pkg-config.sh \

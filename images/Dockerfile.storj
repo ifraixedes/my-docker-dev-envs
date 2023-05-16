@@ -37,6 +37,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-difftastic.sh \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-fzf.sh \
+      && ./99-glow.sh \
       && ./99-golang-revive.sh \
       && ./99-hyperfine.sh \
       && ./99-ijq.sh \
@@ -46,6 +47,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-kind.sh \
       && ./99-lnav.sh \
       && ./99-mcfly.sh \
+      && ./99-mods.sh \
       && ./99-nvm.sh \
       && ./99-procs.sh \
       && ./99-protobuf-compiler.sh \
