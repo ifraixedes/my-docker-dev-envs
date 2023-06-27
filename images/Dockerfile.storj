@@ -15,6 +15,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-helm-v3.sh \
       && ./storj/70-kubectl-and-plugins.sh \
       && ./storj/70-kubie.sh \
+      && ./storj/70-netcat.sh \
       && ./storj/70-packer.sh \
       && ./storj/70-postgresql-client.sh \
       && ./storj/70-prometheus.sh \
