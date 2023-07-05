@@ -37,10 +37,10 @@ docker run --name ifraixedes-${ID} \
 	--add-host=if${ID}:127.0.0.1 \
 	--network=host \
 	${map_dev_arduino} \
-	--mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
-	--mount type=volume,src="${volume_name}",dst="/home/${user_name}/persistent" \
-	--mount type=bind,src="${HOME}",dst=/hostmachine \
-	--mount type=bind,src="${HOME}/.Xauthority",dst="/home/${user_name}/.Xauthority" \
+	--mount "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock" \
+	--mount "type=volume,src=${volume_name},dst=/home/${user_name}/persistent" \
+	--mount "type=bind,src=${HOME},dst=/hostmachine" \
+	--mount "type=bind,src=${HOME}/.Xauthority,dst=/home/${user_name}/.Xauthority" \
 	--env DISPLAY="${DISPLAY}" \
 	ifraixedes/ubuntu/${ID}:22.04 \
 	zsh -c \
