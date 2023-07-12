@@ -22,6 +22,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-python-dev.sh \
       && ./storj/70-salt.sh \
       && ./storj/70-sops.sh \
+      && ./storj/70-spot.sh \
       && ./storj/70-stern.sh \
       && ./storj/70-terraform.sh \
       && ./storj/70-terragrunt.sh \
