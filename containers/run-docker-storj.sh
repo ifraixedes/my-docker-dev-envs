@@ -38,8 +38,8 @@ docker run --name ifraixedes-${ID} \
 	--security-opt seccomp=unconfined \
 	ifraixedes/ubuntu/${ID}:22.04 \
 	zsh -c \
-	"${path_dir_container_script}/private/init-storj.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
-    ${path_dir_container_script}/entrypoint-storj.sh"
+	"${path_dir_container_script}/private/init-${ID}.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
+    ${path_dir_container_script}/entrypoint-${ID}.sh"
 
 # The bind to .Xautority and the DISPLAY environment variable mapping are for
 # making possible to run GUI apps through the host machine X server.

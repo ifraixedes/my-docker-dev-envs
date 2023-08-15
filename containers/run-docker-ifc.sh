@@ -44,8 +44,8 @@ docker run --name ifraixedes-${ID} \
 	--env DISPLAY="${DISPLAY}" \
 	ifraixedes/ubuntu/${ID}:22.04 \
 	zsh -c \
-	"${path_dir_container_script}/init-ifc.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
-    ${path_dir_container_script}/entrypoint-ifc.sh"
+	"${path_dir_container_script}/init-${ID}.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
+    ${path_dir_container_script}/entrypoint-${ID}.sh"
 
 # The bind to .Xautority and the DISPLAY environment variable mapping are for
 # making possible to run GUI apps through the host machine X server.
