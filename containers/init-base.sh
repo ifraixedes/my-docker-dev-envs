@@ -37,15 +37,6 @@ fi
 ## Create home user persistent directories if they don't exist
 mkdir -p "${docker_persistent_path}/bin"
 
-## Install vim plugins if they haven't been installed before
-if [[ ! -d "${docker_persistent_path}/vim" ]]; then
-	mkdir -p "${docker_persistent_path}/vim"
-	ln -s "${docker_persistent_path}/vim" .vim
-	GOBIN="${docker_persistent_path}/bin" vim +PlugInstall +qall!
-else
-	ln -s "${docker_persistent_path}/vim" .vim
-fi
-
 ## Install tmux plugins if they haven't been installed before
 if [[ ! -d "${docker_persistent_path}/tmux" ]]; then
 	mkdir -p "${docker_persistent_path}/tmux"
@@ -61,3 +52,23 @@ if [[ ! -f "${docker_persistent_path}/.zsh_history" ]]; then
 fi
 
 ln -s "${docker_persistent_path}/.zsh_history" .zsh_history
+
+## Create Neovim data directory and symlink
+mkdir -p ".local/share"
+ln -s "${docker_persistent_path}/nvim/data" ".local/share/nvim"
+## Create directory for Neovim Coc plugin (https://github.com/neoclide/coc.nvim) and symlink
+mkdir -p "${docker_persistent_path}/nvim/coc"
+ln -s "${docker_persistent_path}/nvim/coc" "${HOME}/.config/coc"
+## Install plug if it's not installed
+if [[  ! -f "${docker_persistent_path}/nvim/data/site/autoload/plug.vim" ]]; then
+  curl -fLo "${docker_persistent_path}/nvim/data/site/autoload/plug.vim" --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+## Create fnm directories in the persistent volume and symlinks to the home directories used by fnm
+mkdir -p "${docker_persistent_path}/fnm/share"
+mkdir -p "${docker_persistent_path}/fnm/state"
+mkdir -p "${HOME}/.local/state"
+mkdir -p "${HOME}/.local/share"
+ln -s "${docker_persistent_path}/fnm/share" "${HOME}/.local/share/fnm"
+ln -s "${docker_persistent_path}/fnm/state" "${HOME}/.local/state/fnm_multishells"

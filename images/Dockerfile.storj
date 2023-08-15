@@ -35,7 +35,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-chroma.sh \
       && ./99-curlie.sh \
       && ./99-dasel.sh \
-      && ./99-delta.sh \
       && ./99-difftastic.sh \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-fzf.sh \
@@ -50,7 +49,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-lnav.sh \
       && ./99-mcfly.sh \
       && ./99-mods.sh \
-      && ./99-nvm.sh \
       && ./99-procs.sh \
       && ./99-protobuf-compiler.sh \
       && ./99-pueue.sh \

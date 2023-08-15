@@ -10,7 +10,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-amber.sh \
       && ./99-chroma.sh \
       && ./99-bat.sh \
-      && ./99-delta.sh \
       && ./99-deno.sh \
       && ./99-difftastic.sh \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
@@ -26,7 +25,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-libssl-dev.sh \
       && ./99-mcfly.sh \
       && ./99-mods.sh \
-      && ./99-nvm.sh \
       && ./99-oha.sh \
       && ./99-pkg-config.sh \
       && ./99-procs.sh \
