@@ -52,3 +52,12 @@ mkdir -p .oh-my-zsh/completions
 ## persistent volume
 mkdir -p "${docker_persistent_path}/mcfly"
 ln -s "${docker_persistent_path}/mcfly" .mcfly
+
+## Keep Go build and gopls cache in the persistent volume for avoiding to recreate every time that
+## I run a container.
+mkdir -p "${HOME}/.cache"
+cache_dir="${docker_persistent_path}/tmp/cache"
+mkdir -p "${cache_dir}/go-build"
+ln -s "${cache_dir}/go-build" "${HOME}/.cache/go-build"
+mkdir -p "${cache_dir}/gopls"
+ln -s "${cache_dir}/gopls" "${HOME}/.cache/gopls"
