@@ -1,18 +1,28 @@
-#!/usr/bin/env -S bash -
+#!/usr/bin/env bash
 
 set -eux -o pipefail
 
-installation_dir=/apps
-mkdir -p ${installation_dir}
+readonly VERSION="0.121.1"
+readonly INSTALLATION_DIR="/apps"
+mkdir -p "${INSTALLATION_DIR}"
 
-tmp_dir=$(mktemp -d)
+readonly BIN_NAME="hugo"
+readonly DOWNLOAD_URL="https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_linux-amd64.tar.gz"
+
+TMP_DIR=$(mktemp -d)
+readonly TMP_DIR
 cleanup() {
-	rm -rf "${tmp_dir}"
+	trap - EXIT
+
+	rm -rf "${TMP_DIR}"
 }
 trap cleanup EXIT
 
 curl --fail -L \
-	-o "${tmp_dir}/hugo.tgz" \
-	"https://github.com/gohugoio/hugo/releases/download/v0.68.3/hugo_0.68.3_Linux-64bit.tar.gz"
+	-o "${TMP_DIR}/${BIN_NAME}.tgz" \
+	"${DOWNLOAD_URL}"
 
-tar -C "${installation_dir}" --no-same-owner -xzf "${tmp_dir}/hugo.tgz"
+cd "${TMP_DIR}"
+tar zxf "${BIN_NAME}.tgz" --no-same-owner
+chmod +x "${BIN_NAME}"
+mv "${BIN_NAME}" "${INSTALLATION_DIR}/"
