@@ -7,7 +7,7 @@ readonly INSTALLATION_DIR="/apps"
 mkdir -p "${INSTALLATION_DIR}"
 
 readonly BIN_NAME="kdash"
-readonly DOWNLOAD_URL="https://github.com/kdash-rs/kdash/releases/download/v${VERSION}/kdash-linux-musl.tar.gz"
+readonly DOWNLOAD_URL="https://github.com/kdash-rs/kdash/releases/download/v${VERSION}/kdash-linux.tar.gz"
 
 TMP_DIR=$(mktemp -d)
 readonly TMP_DIR
