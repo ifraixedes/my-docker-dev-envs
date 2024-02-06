@@ -65,10 +65,11 @@ if [[  ! -f "${docker_persistent_path}/nvim/data/site/autoload/plug.vim" ]]; the
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-## Create fnm directories in the persistent volume and symlinks to the home directories used by fnm
-mkdir -p "${docker_persistent_path}/fnm/share"
-mkdir -p "${docker_persistent_path}/fnm/state"
+## Mise
+mkdir -p "${docker_persistent_path}/mise/config"
+mkdir -p "${docker_persistent_path}/mise/data"
+mkdir -p "${docker_persistent_path}/mise/state"
 mkdir -p "${HOME}/.local/state"
-mkdir -p "${HOME}/.local/share"
-ln -s "${docker_persistent_path}/fnm/share" "${HOME}/.local/share/fnm"
-ln -s "${docker_persistent_path}/fnm/state" "${HOME}/.local/state/fnm_multishells"
+ln -s "${docker_persistent_path}/mise/config" "${HOME}/.config/mise"
+ln -s "${docker_persistent_path}/mise/data" "${HOME}/.local/share/mise"
+ln -s "${docker_persistent_path}/mise/state" "${HOME}/.local/state/mise"

@@ -18,7 +18,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-exercism.sh \
       && ./99-fzf.sh \
       && ./99-glow.sh \
-      && ./99-golang.sh \
       && ./99-golang-revive.sh \
       && ./99-hyperfine.sh \
       && ./99-hugo.sh \

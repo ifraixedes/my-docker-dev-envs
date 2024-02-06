@@ -7,7 +7,6 @@ RUN mkdir /tmp/box-setup
 ADD setup-scripts /tmp/box-setup/setup-scripts
 
 RUN cd /tmp/box-setup/setup-scripts \
-      && ./storj/01-golang.sh \
       && ./storj/50-storj-repo-dev-requirements.sh \
       && ./storj/70-cockroach-client.sh \
       && ./storj/70-drone.sh \

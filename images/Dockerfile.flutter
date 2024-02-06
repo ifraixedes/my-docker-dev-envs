@@ -1,0 +1,18 @@
+FROM ifraixedes/ubuntu/base:22.04
+
+ARG USER_NAME
+ARG DOCKER_GID
+
+RUN mkdir /tmp/box-setup
+ADD setup-scripts /tmp/box-setup/setup-scripts
+
+RUN cd /tmp/box-setup/setup-scripts \
+      && ./99-mcfly.sh \
+      && ./99-nvm.sh \
+      && apt-get autoremove \
+      && apt-get clean
+
+RUN rm -rf /tmp/box-setup
+WORKDIR "/home/${USER_NAME}"
+
+CMD ["bash"]
