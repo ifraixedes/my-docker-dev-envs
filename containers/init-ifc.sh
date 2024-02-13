@@ -51,7 +51,7 @@ mkdir -p .oh-my-zsh/completions
 ## Save mcfly (https://github.com/cantino/mcfly) shell history into the
 ## persistent volume
 mkdir -p "${docker_persistent_path}/mcfly"
-ln -s "${docker_persistent_path}/mcfly" .mcfly
+ln -s "${docker_persistent_path}/mcfly" "${HOME}/.mcfly"
 
 ## Keep Go build and gopls cache in the persistent volume for avoiding to recreate every time that
 ## I run a container.
