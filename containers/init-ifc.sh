@@ -61,3 +61,7 @@ mkdir -p "${cache_dir}/go-build"
 ln -s "${cache_dir}/go-build" "${HOME}/.cache/go-build"
 mkdir -p "${cache_dir}/gopls"
 ln -s "${cache_dir}/gopls" "${HOME}/.cache/gopls"
+
+## Codeium
+mkdir -p "${docker_persistent_path}/codeium"
+ln -s "${docker_persistent_path}/codeium" "${HOME}/.codeium"
