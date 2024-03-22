@@ -40,6 +40,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-glow.sh \
       && ./99-golang-revive.sh \
       && ./99-hyperfine.sh \
+      && ./99-jnv \
       && ./99-jq.sh \
       && ./99-just.sh \
       && ./99-kdash.sh \
