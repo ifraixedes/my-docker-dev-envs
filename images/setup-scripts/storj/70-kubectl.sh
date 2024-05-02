@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-set -eux -o pipefail
+set -eu -o pipefail
 
-installation_dir=/apps
-mkdir -p ${installation_dir}
+readonly VERSION="1.15.2"
+readonly INSTALLATION_DIR="/apps"
+mkdir -p "${INSTALLATION_DIR}"
+
+readonly BIN_NAME="kubectl"
+readonly DOWNLOAD_URL="https://storage.googleapis.com/kubernetes-release/release/v${VERSION}/bin/linux/amd64/kubectl"
 
 curl --fail -L \
-	-o "${installation_dir}/kubectl" \
-	"https://storage.googleapis.com/kubernetes-release/release/v1.15.12/bin/linux/amd64/kubectl"
-chmod +x "${installation_dir}/kubectl"
+	-o "${INSTALLATION_DIR}/${BIN_NAME}" \
+	"${DOWNLOAD_URL}"
+
+chmod +x "${INSTALLATION_DIR}/${BIN_NAME}"
