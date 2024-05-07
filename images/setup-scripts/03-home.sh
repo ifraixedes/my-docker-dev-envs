@@ -23,11 +23,6 @@ if [ ! -d .oh-my-zsh ]; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
-# Install tmux plugin manager
-if [ ! -d .tmux-tpm ]; then
-	git clone https://github.com/tmux-plugins/tpm .tmux-tpm
-fi
-
 # Create directory for mapping the docker volume to persist binaries, configurations, etc., between runs.
 mkdir -p persistent
 

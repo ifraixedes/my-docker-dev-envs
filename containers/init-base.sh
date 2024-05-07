@@ -39,9 +39,10 @@ mkdir -p "${docker_persistent_path}/bin"
 
 ## Install tmux plugins if they haven't been installed before
 if [[ ! -d "${docker_persistent_path}/tmux" ]]; then
-	mkdir -p "${docker_persistent_path}/tmux"
+	mkdir -p "${docker_persistent_path}/tmux/resurrect"
 	ln -s "${docker_persistent_path}/tmux" .tmux
-	.tmux-tpm/scripts/install_plugins.sh
+	git clone https://github.com/tmux-plugins/tpm "${docker_persistent_path}/tmux/plugins/tpm"
+	"${docker_persistent_path}/tmux/plugins/tpm/scripts/install_plugins.sh"
 else
 	ln -s "${docker_persistent_path}/tmux" .tmux
 fi
