@@ -11,7 +11,8 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-cockroach-client.sh \
       && ./storj/70-git-lfs.sh \
       && ./storj/private/70-google-cloud-tools.sh \
-      && ./storj/70-helm-v3.sh \
+      && ./storj/70-helm.sh \
+      && ./storj/70-helmfile.sh \
       && ./storj/70-kubectl-and-plugins.sh \
       && ./storj/70-kubie.sh \
       && ./storj/70-netcat.sh \
