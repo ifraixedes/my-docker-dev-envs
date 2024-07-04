@@ -65,3 +65,8 @@ ln -s "${cache_dir}/gopls" "${HOME}/.cache/gopls"
 ## Codeium
 mkdir -p "${docker_persistent_path}/codeium"
 ln -s "${docker_persistent_path}/codeium" "${HOME}/.codeium"
+
+## Github Copilot configuration directory
+mkdir -p "${docker_persistent_path}/github-copilot"
+mkdir -p "${HOME}/.config"
+ln -s "${docker_persistent_path}/github-copilot" "${HOME}/.config/github-copilot"
