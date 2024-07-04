@@ -1,0 +1,18 @@
+FROM ubuntu:22.04
+
+ARG LOCALE=en_US.UTF-8
+ARG USER_NAME=ivan
+ARG USER_ID=1000
+ARG USER_PWD=wow
+
+RUN mkdir /tmp/box-setup
+ADD setup-scripts /tmp/box-setup/setup-scripts
+
+RUN cd /tmp/box-setup/setup-scripts \
+      && ./00-os-update-and-config.sh "${LOCALE}" "${USER_NAME}" "${USER_ID}" "${USER_PWD}" \
+      && apt-get clean
+
+RUN rm -rf /tmp/box-setup
+WORKDIR "/home/${USER_NAME}"
+
+CMD ["bash"]
