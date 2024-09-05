@@ -4,6 +4,7 @@ set -eu -o pipefail
 
 # Required parameters
 repo_remote="${1}"
+path_dir_container_scripts="${2}"
 
 # This variable is used for identifying docker image, volumes, git branches,etc.
 readonly ID=ifc
@@ -39,13 +40,13 @@ docker run --name ifraixedes-${ID} \
 	--mount "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock" \
 	--mount "type=volume,src=${volume_name},dst=/home/${user_name}/persistent" \
 	--mount "type=bind,src=${HOME}/workspace,dst=/hostmachine/workspace" \
-	--mount "type=bind,src=${HOME}/cloud/mega/devices/configs/operative-system/docker/ubuntu/22.04/containers,dst=/hostmachine/container-scripts,readonly" \
-	--mount "type=bind,src=${HOME}/cloud/mega/devices/configs/operative-system/docker/home.git,dst=/hostmachine/container-home.git" \
+	--mount "type=bind,src=${path_dir_container_scripts},dst=/hostmachine/container-scripts,readonly" \
+	--mount "type=bind,src=${repo_remote},dst=/hostmachine/container-home.git" \
 	--mount "type=bind,src=${HOME}/.Xauthority,dst=/home/${user_name}/.Xauthority" \
 	--env DISPLAY="${DISPLAY}" \
 	ifraixedes/ubuntu/${ID}:22.04 \
 	zsh -c \
-	"/hostmachine/container-scripts/init-${ID}.sh ${persistent_dir} ${repo_remote} ${repo_branch} && \
+	"/hostmachine/container-scripts/init-${ID}.sh ${persistent_dir} /hostmachine/container-home.git ${repo_branch} && \
     /hostmachine/container-scripts/entrypoint-${ID}.sh"
 
 # The bind to .Xautority and the DISPLAY environment variable mapping are for
