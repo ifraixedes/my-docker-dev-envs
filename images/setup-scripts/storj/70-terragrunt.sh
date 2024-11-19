@@ -2,7 +2,7 @@
 
 set -eux -o pipefail
 
-readonly VERSION="0.68.12"
+readonly VERSION="0.68.13"
 readonly INSTALLATION_DIR="/apps"
 mkdir -p "${INSTALLATION_DIR}"
 
