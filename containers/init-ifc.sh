@@ -70,3 +70,7 @@ ln -s "${docker_persistent_path}/codeium" "${HOME}/.codeium"
 mkdir -p "${docker_persistent_path}/github-copilot"
 mkdir -p "${HOME}/.config"
 ln -s "${docker_persistent_path}/github-copilot" "${HOME}/.config/github-copilot"
+
+## Solana development
+mkdir -p "${docker_persistent_path}/solana/avm"
+ln -s "${docker_persistent_path}/solana/avm" "${HOME}/.avm"
