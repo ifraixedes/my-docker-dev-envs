@@ -57,6 +57,8 @@ ln -s "${docker_persistent_path}/.zsh_history" .zsh_history
 ## Create Neovim data directory and symlink
 mkdir -p ".local/share"
 ln -s "${docker_persistent_path}/nvim/data" ".local/share/nvim"
+mkdir -p ".local/state"
+ln -s "${docker_persistent_path}/nvim/state" ".local/state/nvim"
 ## Create directory for Neovim Coc plugin (https://github.com/neoclide/coc.nvim) and symlink
 mkdir -p "${docker_persistent_path}/nvim/coc"
 ln -s "${docker_persistent_path}/nvim/coc" "${HOME}/.config/coc"
