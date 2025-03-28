@@ -23,6 +23,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-libssl-dev.sh \
       && ./99-mcfly.sh \
       && ./99-mods.sh \
+      && ./99-neovim-config-deps.sh \
       && ./99-oha.sh \
       && ./99-pkg-config.sh \
       && ./99-procs.sh \

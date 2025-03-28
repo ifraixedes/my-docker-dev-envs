@@ -49,6 +49,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-lnav.sh \
       && ./99-mcfly.sh \
       && ./99-mods.sh \
+      && ./99-neovim-config-deps.sh \
       && ./99-procs.sh \
       && ./99-protobuf-compiler.sh \
       && ./99-pueue.sh \
