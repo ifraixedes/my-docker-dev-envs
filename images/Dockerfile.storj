@@ -11,9 +11,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-cockroach-client.sh \
       && ./storj/70-git-lfs.sh \
       && ./storj/70-google-cloud-tools.sh \
-      && ./storj/70-helm.sh \
-      && ./storj/70-helmfile.sh \
-      && ./storj/70-kubectl-and-plugins.sh \
       && ./storj/70-kubie.sh \
       && ./storj/70-netcat.sh \
       && ./storj/70-packer.sh \
@@ -21,7 +18,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./storj/70-prometheus.sh \
       && ./storj/70-python-dev.sh \
       && ./storj/70-salt.sh \
-      && ./storj/70-sops.sh \
       && ./storj/70-spot.sh \
       && ./storj/70-stern.sh \
       && ./storj/70-terraform.sh \
