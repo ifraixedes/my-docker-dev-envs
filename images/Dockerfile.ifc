@@ -21,6 +21,7 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-golang-revive.sh \
       && ./99-hyperfine.sh \
       && ./99-libssl-dev.sh \
+      && ./99-lldb.sh \
       && ./99-mcfly.sh \
       && ./99-mods.sh \
       && ./99-neovim-config-deps.sh \
