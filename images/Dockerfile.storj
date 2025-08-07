@@ -21,7 +21,6 @@ RUN cd /tmp/box-setup/setup-scripts \
       && ./99-docker-cli.sh "${USER_NAME}" "${DOCKER_GID}" \
       && ./99-goose-ai-agent.sh \
       && ./99-kdash.sh \
-      && ./99-lnav.sh \
       && ./99-mcfly.sh \
       && ./99-neovim-config-deps.sh \
       && ./99-procs.sh \
