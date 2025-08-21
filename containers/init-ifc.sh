@@ -70,3 +70,9 @@ ln -s "${docker_persistent_path}/github-copilot" "${HOME}/.config/github-copilot
 ## Solana development
 mkdir -p "${docker_persistent_path}/solana/avm"
 ln -s "${docker_persistent_path}/solana/avm" "${HOME}/.avm"
+
+## Opencode AI (https://github.com/sst/opencode | https://opencode.ai/)
+mkdir -p "${docker_persistent_path}/opencode/local/share"
+ln -s "${docker_persistent_path}/opencode/local/share" "${HOME}/.local/share/opencode"
+mkdir -p "${docker_persistent_path}/opencode/local/state"
+ln -s "${docker_persistent_path}/opencode/local/state" "${HOME}/.local/state/opencode"
