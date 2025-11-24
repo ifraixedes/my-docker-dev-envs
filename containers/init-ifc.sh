@@ -76,3 +76,7 @@ mkdir -p "${docker_persistent_path}/opencode/local/share"
 ln -s "${docker_persistent_path}/opencode/local/share" "${HOME}/.local/share/opencode"
 mkdir -p "${docker_persistent_path}/opencode/local/state"
 ln -s "${docker_persistent_path}/opencode/local/state" "${HOME}/.local/state/opencode"
+
+## Gemini CLI (https://github.com/google-gemini/gemini-cli)
+mkdir -p "${docker_persistent_path}/gemini-cli"
+ln -s "${docker_persistent_path}/gemini-cli" "${HOME}/.gemini"
