@@ -80,3 +80,7 @@ ln -s "${docker_persistent_path}/opencode/local/state" "${HOME}/.local/state/ope
 ## Gemini CLI (https://github.com/google-gemini/gemini-cli)
 mkdir -p "${docker_persistent_path}/gemini-cli"
 ln -s "${docker_persistent_path}/gemini-cli" "${HOME}/.gemini"
+
+## Amp (https://ampcode.com/)
+mkdir -p "${docker_persistent_path}/amp/share"
+ln -s "${docker_persistent_path}/amp/share" "${HOME}/.local/share/amp"
