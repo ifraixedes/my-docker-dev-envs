@@ -2,7 +2,7 @@
 
 set -eux -o pipefail
 
-readonly VERSION="0.6.1"
+readonly VERSION="1.1.1"
 readonly INSTALLATION_DIR="/apps"
 mkdir -p "${INSTALLATION_DIR}"
 
@@ -12,15 +12,15 @@ readonly DOWNLOAD_URL="https://github.com/kdash-rs/kdash/releases/download/v${VE
 TMP_DIR=$(mktemp -d)
 readonly TMP_DIR
 cleanup() {
-	trap - EXIT
+ trap - EXIT
 
-	rm -rf "${TMP_DIR}"
+ rm -rf "${TMP_DIR}"
 }
 trap cleanup EXIT
 
 curl --fail -L \
-	-o "${TMP_DIR}/${BIN_NAME}.tgz" \
-	"${DOWNLOAD_URL}"
+ -o "${TMP_DIR}/${BIN_NAME}.tgz" \
+ "${DOWNLOAD_URL}"
 
 cd "${TMP_DIR}"
 tar zxf "${BIN_NAME}.tgz"
