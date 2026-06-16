@@ -72,6 +72,8 @@ mkdir -p "${docker_persistent_path}/solana/avm"
 ln -s "${docker_persistent_path}/solana/avm" "${HOME}/.avm"
 
 ## Opencode AI (https://github.com/sst/opencode | https://opencode.ai/)
+mkdir -p "${docker_persistent_path}/opencode/config"
+ln -s "${docker_persistent_path}/opencode/config" "${HOME}/.config/opencode"
 mkdir -p "${docker_persistent_path}/opencode/local/share"
 ln -s "${docker_persistent_path}/opencode/local/share" "${HOME}/.local/share/opencode"
 mkdir -p "${docker_persistent_path}/opencode/local/state"
